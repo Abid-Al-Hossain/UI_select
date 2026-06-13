@@ -41,7 +41,7 @@ export default function Page() {
     setActivePresetId(null);
   };
   const applyPreset = (preset: StudioPreset) => {
-    setState(preset.state);
+    setState({ ...DEFAULT_SELECTSTUDIO_STATE, ...(preset.state as Partial<SelectStudioState>) });
     setActivePresetId(preset.id);
     setPreviewResetKey((value) => value + 1);
   };

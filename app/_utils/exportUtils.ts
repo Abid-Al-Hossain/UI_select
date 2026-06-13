@@ -93,7 +93,7 @@ export default function SelectStudioComponent() {
         fontFamily: state.fontFamily,
         opacity: state.disabled || state.previewState === "disabled" ? 0.55 : 1,
         outline: state.previewState === "focus" ? \`\${state.focusRing}px solid \${state.accent}\` : "none",
-        transition: state.motion ? "all 180ms ease" : "none",
+        transition: state.transitionDuration > 0 ? "$1" : "none",
       }}
     >
       <label htmlFor={state.id} style={{ fontSize: state.labelSize, fontWeight: state.fontWeight }}>
