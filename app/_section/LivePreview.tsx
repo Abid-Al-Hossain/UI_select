@@ -30,9 +30,9 @@ function shellStyle(state: SelectStudioState): CSSProperties {
     padding: state.padding,
     gap: state.gap,
     borderRadius: buildRadius(state),
-    border: `${state.borderWidth}px solid ${invalid ? "#fb7185" : state.previewState === "focus" ? state.accent : state.border}`,
+    border: `${state.borderWidth}px solid ${invalid ? state.errorColor : state.previewState === "focus" ? state.accent : state.border}`,
     boxShadow: buildShadow(state),
-    background: state.background,
+    background: state.disabled && state.disabledUseCustomColors ? state.disabledBg : state.background,
     color: state.foreground,
     fontFamily: resolveFont(state),
     fontStyle: state.fontStyle,
@@ -59,9 +59,10 @@ export default function LivePreview({ state }: { state: SelectStudioState }) {
   }));
   const selectedOption = options.find((option) => option.value === state.value) ?? options[0];
   const groups = Array.from(new Set(options.map((option) => option.group)));
+  const preSelectedValues = [options[0]?.value, options[1]?.value].filter(Boolean);
   const nativeSelect = (
-    <select id={state.id} name={state.name} title={state.title} tabIndex={state.tabIndex} dir={state.dir} lang={state.lang} value={state.value} required={state.required} disabled={state.disabled} autoComplete={state.autocomplete} aria-invalid={invalid || undefined} className={commonInput} style={{ borderColor: invalid ? "#fb7185" : state.border, color: state.foreground }} onChange={() => undefined}>
-      {state.placeholder && <option value="" disabled={state.required}>{state.placeholder}</option>}
+    <select id={state.id} name={state.name} title={state.title} tabIndex={state.tabIndex} dir={state.dir} lang={state.lang} multiple={state.multiple || undefined} size={state.multiple ? Math.min(optionCount, 5) : undefined} value={state.multiple ? preSelectedValues : state.value} required={state.required} disabled={state.disabled} autoComplete={state.autocomplete} aria-invalid={invalid || undefined} className={commonInput} style={{ borderColor: invalid ? state.errorColor : state.border, color: state.foreground }} onChange={() => undefined}>
+      {!state.multiple && state.placeholder && <option value="" disabled={state.required}>{state.placeholder}</option>}
       {groups.map((group) => (
         <optgroup key={group} label={group}>
           {options.filter((option) => option.group === group).map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
@@ -70,8 +71,16 @@ export default function LivePreview({ state }: { state: SelectStudioState }) {
     </select>
   );
   const customPanel = (
-    <div role="listbox" id={`${state.id}-listbox`} aria-label={`${state.label} options`} className="grid gap-1 rounded-xl border p-2" style={{ borderColor: state.border, background: "rgba(255,255,255,0.06)" }}>
-      {options.map((option) => <button key={option.value} type="button" role="option" aria-selected={option.value === state.value} className="rounded-lg px-3 py-2 text-left text-sm" style={{ background: option.value === state.value ? state.accent : "transparent", color: option.value === state.value ? "#ffffff" : state.foreground }}>{option.label}</button>)}
+    <div role="listbox" id={`${state.id}-listbox`} aria-label={`${state.label} options`} aria-multiselectable={state.multiple || undefined} className="grid gap-1 rounded-xl border p-2" style={{ borderColor: state.border, background: "rgba(255,255,255,0.06)" }}>
+      {options.map((option, idx) => {
+        const isSelected = state.multiple ? idx < 2 : option.value === state.value;
+        return (
+          <button key={option.value} type="button" role="option" aria-selected={isSelected} className="flex items-center gap-2 rounded-lg px-3 py-2 text-left text-sm" style={{ background: isSelected ? state.itemActiveBg : "transparent", color: state.foreground }}>
+            {state.multiple && <span aria-hidden="true" style={{ display: "grid", placeItems: "center", width: 16, height: 16, borderRadius: 4, border: `2px solid ${isSelected ? state.accent : state.border}`, background: isSelected ? state.accent : "transparent", flexShrink: 0 }}>{isSelected ? "✓" : ""}</span>}
+            {option.label}
+          </button>
+        );
+      })}
     </div>
   );
 
@@ -82,15 +91,15 @@ export default function LivePreview({ state }: { state: SelectStudioState }) {
       {state.selectMode === "native" ? nativeSelect : (
         <div className="grid gap-2">
           {state.selectMode === "combobox" && state.searchable ? (
-            <input id={state.id} role="combobox" aria-controls={`${state.id}-listbox`} aria-expanded="true" aria-autocomplete="list" aria-invalid={invalid || undefined} value={selectedOption.label} placeholder={state.placeholder} disabled={state.disabled} readOnly className={commonInput} style={{ borderColor: invalid ? "#fb7185" : state.border, color: state.foreground }} />
+            <input id={state.id} role="combobox" aria-controls={`${state.id}-listbox`} aria-expanded="true" aria-autocomplete="list" aria-invalid={invalid || undefined} value={state.multiple ? `${preSelectedValues.length} selected` : selectedOption.label} placeholder={state.placeholder} disabled={state.disabled} readOnly className={commonInput} style={{ borderColor: invalid ? state.errorColor : state.border, color: state.foreground }} />
           ) : (
-            <button id={state.id} type="button" role="combobox" aria-controls={`${state.id}-listbox`} aria-expanded="true" aria-invalid={invalid || undefined} disabled={state.disabled} className={commonInput} style={{ borderColor: invalid ? "#fb7185" : state.border, color: state.foreground, textAlign: "left" }}>{selectedOption.label || state.placeholder}</button>
+            <button id={state.id} type="button" role="combobox" aria-controls={`${state.id}-listbox`} aria-expanded="true" aria-invalid={invalid || undefined} disabled={state.disabled} className={commonInput} style={{ borderColor: invalid ? state.errorColor : state.border, color: state.foreground, textAlign: "left" }}>{state.multiple ? `${preSelectedValues.length} selected` : (selectedOption.label || state.placeholder)}</button>
           )}
           {state.clearable && <button type="button" disabled={state.disabled} className="justify-self-start rounded-lg px-2 py-1 text-xs" style={{ border: `1px solid ${state.border}`, color: state.foreground }}>Clear selection</button>}
           {customPanel}
         </div>
       )}
-      <small style={{ color: invalid ? "#fb7185" : state.showSuccess ? "#22c55e" : state.muted }}>{message}</small>
+      <small style={{ color: invalid ? state.errorColor : state.showSuccess ? state.successColor : state.muted }}>{message}</small>
     </div>
   );
 }

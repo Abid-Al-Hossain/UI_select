@@ -28,6 +28,7 @@ export default function FieldSection({ state, update }: Props) {
   "bottom",
   "top"
 ]} onChange={(value) => update("panelSide", value)} />
+      <Switch label="Multiple" checked={state.multiple} onChange={(value) => update("multiple", value)} />
       <Switch label="Searchable" checked={state.searchable} onChange={(value) => update("searchable", value)} />
       <Switch label="Clearable" checked={state.clearable} onChange={(value) => update("clearable", value)} />
     </SectionCard>

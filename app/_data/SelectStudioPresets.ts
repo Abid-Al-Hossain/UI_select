@@ -75,6 +75,16 @@ export const DEFAULT_SELECTSTUDIO_STATE: SelectStudioState = {
   "clearable": true,
   "required": true,
   "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+  "errorColor": "#ef4444",
+  "successColor": "#22c55e",
+  "itemActiveBg": "rgba(56,189,248,0.18)",
+  "multiple": false,
   "readOnly": false,
   "invalid": false
 };
@@ -136,6 +146,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -196,6 +214,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -256,6 +282,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -316,6 +350,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -376,6 +418,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -436,6 +486,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -496,6 +554,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -556,6 +622,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -616,6 +690,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -676,6 +758,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -736,6 +826,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -796,6 +894,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -856,6 +962,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -916,6 +1030,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -976,6 +1098,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1036,6 +1166,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1096,6 +1234,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1156,6 +1302,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1216,6 +1370,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1276,6 +1438,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1336,6 +1506,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1396,6 +1574,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1456,6 +1642,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1516,6 +1710,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1576,6 +1778,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1636,6 +1846,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1696,6 +1914,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1756,6 +1982,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1816,6 +2050,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1876,6 +2118,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1936,6 +2186,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -1996,6 +2254,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -2056,6 +2322,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -2116,6 +2390,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -2176,6 +2458,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -2236,6 +2526,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -2296,6 +2594,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -2356,6 +2662,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -2416,6 +2730,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -2476,6 +2798,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -2536,6 +2866,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -2596,6 +2934,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -2656,6 +3002,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -2716,6 +3070,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -2776,6 +3138,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -2836,6 +3206,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -2896,6 +3274,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }
@@ -2956,6 +3342,14 @@ export const SELECTSTUDIO_PRESETS: StudioPreset[] = [
       "clearable": true,
       "required": true,
       "disabled": false,
+  "disabledOpacity": 0.5,
+  "disabledCursor": "not-allowed",
+  "disabledUseCustomColors": false,
+  "disabledBg": "#374151",
+  "disabledText": "#9ca3af",
+  "disabledBorder": "#4b5563",
+      "itemActiveBg": "rgba(56,189,248,0.18)",
+      "multiple": false,
       "readOnly": false,
       "invalid": false
     }

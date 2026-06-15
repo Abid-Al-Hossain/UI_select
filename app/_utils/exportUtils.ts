@@ -18,6 +18,9 @@ export function buildReactCode(state: SelectStudioState) {
   return `import * as React from "react";
 
 const state = ${JSON.stringify(state, null, 2)};
+function resolveFont(s) { return s.fontBucket === "google" ? '"' + s.googleFontFamily + '", sans-serif' : "inherit"; }
+function buildShadow(s) { if (!s.shadowEnabled) return "none"; var hex = Math.round(s.shadowOpacity * 255).toString(16).padStart(2, "0"); return s.shadowX + "px " + s.shadowY + "px " + s.shadowBlur + "px " + s.shadowSpread + "px " + s.shadowColor + hex; }
+
 
 export default function SelectStudioComponent() {
   const invalid = state.invalid || state.previewState === "invalid";
@@ -30,11 +33,12 @@ export default function SelectStudioComponent() {
     group: \`Group \${(index % groupCount) + 1}\`,
   }));
   const selectedOption = options.find((option) => option.value === state.value) ?? options[0];
+  const selectedValues = state.multiple ? [options[0]?.value, options[1]?.value].filter(Boolean) : [state.value];
   const groups = Array.from(new Set(options.map((option) => option.group)));
   const fieldStyle = {
     width: "100%",
     borderRadius: 12,
-    border: \`1px solid \${invalid ? "#fb7185" : state.border}\`,
+    border: \`1px solid \${invalid ? state.errorColor : state.border}\`,
     background: "rgba(255,255,255,0.1)",
     padding: "8px 12px",
     outline: 0,
@@ -48,7 +52,9 @@ export default function SelectStudioComponent() {
       tabIndex={state.tabIndex}
       dir={state.dir}
       lang={state.lang}
-      value={state.value}
+      multiple={state.multiple || undefined}
+      size={state.multiple ? Math.min(optionCount, 5) : undefined}
+      value={state.multiple ? selectedValues : state.value}
       required={state.required}
       disabled={state.disabled}
       autoComplete={state.autocomplete}
@@ -56,7 +62,7 @@ export default function SelectStudioComponent() {
       style={fieldStyle}
       onChange={() => undefined}
     >
-      {state.placeholder && <option value="" disabled={state.required}>{state.placeholder}</option>}
+      {!state.multiple && state.placeholder && <option value="" disabled={state.required}>{state.placeholder}</option>}
       {groups.map((group) => (
         <optgroup key={group} label={group}>
           {options.filter((option) => option.group === group).map((option) => (
@@ -67,12 +73,16 @@ export default function SelectStudioComponent() {
     </select>
   );
   const customPanel = (
-    <div role="listbox" id={\`\${state.id}-listbox\`} aria-label={\`\${state.label} options\`} style={{ display: "grid", gap: 4, borderRadius: 12, border: \`1px solid \${state.border}\`, padding: 8, background: "rgba(255,255,255,0.06)" }}>
-      {options.map((option) => (
-        <button key={option.value} type="button" role="option" aria-selected={option.value === state.value} style={{ border: 0, borderRadius: 8, padding: "8px 12px", textAlign: "left", background: option.value === state.value ? state.accent : "transparent", color: option.value === state.value ? "#ffffff" : state.foreground }}>
-          {option.label}
-        </button>
-      ))}
+    <div role="listbox" id={\`\${state.id}-listbox\`} aria-label={\`\${state.label} options\`} aria-multiselectable={state.multiple || undefined} style={{ display: "grid", gap: 4, borderRadius: 12, border: \`1px solid \${state.border}\`, padding: 8, background: "rgba(255,255,255,0.06)" }}>
+      {options.map((option, idx) => {
+        const isSelected = state.multiple ? idx < 2 : option.value === state.value;
+        return (
+          <button key={option.value} type="button" role="option" aria-selected={isSelected} style={{ border: 0, borderRadius: 8, padding: "8px 12px", textAlign: "left", display: "flex", alignItems: "center", gap: 8, background: isSelected ? state.itemActiveBg : "transparent", color: state.foreground }}>
+            {state.multiple && <span aria-hidden="true" style={{ display: "grid", placeItems: "center", width: 16, height: 16, flexShrink: 0, borderRadius: 4, border: \`2px solid \${isSelected ? state.accent : state.border}\`, background: isSelected ? state.accent : "transparent" }}>{isSelected ? "✓" : ""}</span>}
+            {option.label}
+          </button>
+        );
+      })}
     </div>
   );
 
@@ -86,14 +96,14 @@ export default function SelectStudioComponent() {
         alignContent: "center",
         gap: state.gap,
         borderRadius: state.radius,
-        border: \`\${state.borderWidth}px solid \${invalid ? "#fb7185" : state.previewState === "focus" ? state.accent : state.border}\`,
+        border: \`\${state.borderWidth}px ${state.borderStyle} \${invalid ? state.errorColor : state.previewState === "focus" ? state.accent : state.border}\`,
         boxShadow: \`0 \${Math.round(state.shadow / 3)}px \${state.shadow}px rgba(0,0,0,.28)\`,
         background: state.background,
         color: state.foreground,
-        fontFamily: state.fontFamily,
+        fontFamily: resolveFont(state),
         opacity: state.disabled || state.previewState === "disabled" ? 0.55 : 1,
         outline: state.previewState === "focus" ? \`\${state.focusRing}px solid \${state.accent}\` : "none",
-        transition: state.transitionDuration > 0 ? "$1" : "none",
+        transition: state.transitionDuration > 0 ? "all " + state.transitionDuration + "ms " + state.transitionEasing : "none",
       }}
     >
       <label htmlFor={state.id} style={{ fontSize: state.labelSize, fontWeight: state.fontWeight }}>
@@ -110,7 +120,7 @@ export default function SelectStudioComponent() {
               aria-expanded="true"
               aria-autocomplete="list"
               aria-invalid={invalid || undefined}
-              value={selectedOption.label}
+              value={state.multiple ? selectedValues.length + " selected" : selectedOption.label}
               placeholder={state.placeholder}
               disabled={state.disabled}
               readOnly
@@ -127,7 +137,7 @@ export default function SelectStudioComponent() {
               disabled={state.disabled}
               style={{ ...fieldStyle, textAlign: "left" }}
             >
-              {selectedOption.label || state.placeholder}
+              {state.multiple ? selectedValues.length + " selected" : (selectedOption.label || state.placeholder)}
             </button>
           )}
           {state.clearable && (
@@ -138,7 +148,7 @@ export default function SelectStudioComponent() {
           {customPanel}
         </div>
       )}
-      <small style={{ color: invalid ? "#fb7185" : state.showSuccess ? "#22c55e" : state.muted }}>{message}</small>
+      <small style={{ color: invalid ? state.errorColor : state.showSuccess ? state.successColor : state.muted }}>{message}</small>
     </div>
   );
 }
