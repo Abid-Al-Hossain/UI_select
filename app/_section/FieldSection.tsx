@@ -15,6 +15,7 @@ type Props = {
 export default function FieldSection({ state, update }: Props) {
   return (
     <SectionCard title="Field" subtitle="Field controls that are native, preview-honest, and React-export-honest.">
+      <div className="space-y-4">
       <Input label="Value" value={state.value} onChange={(value) => update("value", value)} />
       <Input label="Placeholder" value={state.placeholder} onChange={(value) => update("placeholder", value)} />
       <Slider label="Option count" value={state.optionCount} min={2} max={12} step={1} onChange={(value) => update("optionCount", value)} />
@@ -31,6 +32,7 @@ export default function FieldSection({ state, update }: Props) {
       <Switch label="Multiple" checked={state.multiple} onChange={(value) => update("multiple", value)} />
       <Switch label="Searchable" checked={state.searchable} onChange={(value) => update("searchable", value)} />
       <Switch label="Clearable" checked={state.clearable} onChange={(value) => update("clearable", value)} />
+    </div>
     </SectionCard>
   );
 }
