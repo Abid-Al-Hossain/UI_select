@@ -86,7 +86,17 @@ export const DEFAULT_SELECTSTUDIO_STATE: SelectStudioState = {
   "itemActiveBg": "rgba(56,189,248,0.18)",
   "multiple": false,
   "readOnly": false,
-  "invalid": false
+  "invalid": false,
+  "ariaLabel": "",
+  "ariaDescribedBy": "",
+  "optionActiveBg": "rgba(255,255,255,0.08)",
+  "optionActiveText": "#ffffff",
+  "optionSelectedText": "#ffffff",
+  "optionDisabledColor": "#6b7280",
+  "listMaxHeight": 240,
+  "listShadow": "0 12px 24px rgba(0,0,0,0.35)",
+  "checkmarkColor": "#38bdf8",
+  "chevronColor": "#94a3b8"
 };
 
 export const SELECTSTUDIO_PRESETS: StudioPreset[] = [

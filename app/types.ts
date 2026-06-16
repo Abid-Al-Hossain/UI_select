@@ -92,6 +92,16 @@ export type SelectStudioState = {
   multiple: boolean;
   readOnly: boolean;
   invalid: boolean;
+  ariaLabel: string;
+  ariaDescribedBy: string;
+  optionActiveBg: string;
+  optionActiveText: string;
+  optionSelectedText: string;
+  optionDisabledColor: string;
+  listMaxHeight: number;
+  listShadow: string;
+  checkmarkColor: string;
+  chevronColor: string;
 };
 
 export type StudioPreset = {

@@ -25,12 +25,16 @@ function buildShadow(s) { if (!s.shadowEnabled) return "none"; var hex = Math.ro
 export default function SelectStudioComponent() {
   const invalid = state.invalid || state.previewState === "invalid";
   const message = invalid ? state.errorText : state.showSuccess ? state.successText : state.showHelper ? state.helper : "";
+  const messageId = \`\${state.id}-message\`;
+  const describedBy = [state.ariaDescribedBy, message ? messageId : ""].filter(Boolean).join(" ") || undefined;
+  const [activeOptionIdx, setActiveOptionIdx] = React.useState(null);
   const optionCount = Math.max(2, state.optionCount);
   const groupCount = Math.max(1, state.groupCount);
   const options = Array.from({ length: optionCount }, (_, index) => ({
     label: index === 0 ? "Growth workspace" : \`Option \${index + 1}\`,
     value: index === 0 ? state.value : \`option-\${index + 1}\`,
     group: \`Group \${(index % groupCount) + 1}\`,
+    optionDisabled: index % 4 === 3,
   }));
   const selectedOption = options.find((option) => option.value === state.value) ?? options[0];
   const selectedValues = state.multiple ? [options[0]?.value, options[1]?.value].filter(Boolean) : [state.value];
@@ -59,6 +63,8 @@ export default function SelectStudioComponent() {
       disabled={state.disabled}
       autoComplete={state.autocomplete}
       aria-invalid={invalid || undefined}
+      aria-label={state.ariaLabel || undefined}
+      aria-describedby={describedBy}
       style={fieldStyle}
       onChange={() => undefined}
     >
@@ -66,20 +72,34 @@ export default function SelectStudioComponent() {
       {groups.map((group) => (
         <optgroup key={group} label={group}>
           {options.filter((option) => option.group === group).map((option) => (
-            <option key={option.value} value={option.value}>{option.label}</option>
+            <option key={option.value} value={option.value} disabled={option.optionDisabled}>{option.label}</option>
           ))}
         </optgroup>
       ))}
     </select>
   );
   const customPanel = (
-    <div role="listbox" id={\`\${state.id}-listbox\`} aria-label={\`\${state.label} options\`} aria-multiselectable={state.multiple || undefined} style={{ display: "grid", gap: 4, borderRadius: 12, border: \`1px solid \${state.border}\`, padding: 8, background: "rgba(255,255,255,0.06)" }}>
+    <div role="listbox" id={\`\${state.id}-listbox\`} aria-label={state.ariaLabel || \`\${state.label} options\`} aria-multiselectable={state.multiple || undefined} style={{ display: "grid", gap: 4, overflowY: "auto", maxHeight: state.listMaxHeight, boxShadow: state.listShadow, borderRadius: 12, border: \`1px solid \${state.border}\`, padding: 8, background: "rgba(255,255,255,0.06)" }}>
       {options.map((option, idx) => {
         const isSelected = state.multiple ? idx < 2 : option.value === state.value;
+        const isActive = activeOptionIdx === idx;
         return (
-          <button key={option.value} type="button" role="option" aria-selected={isSelected} style={{ border: 0, borderRadius: 8, padding: "8px 12px", textAlign: "left", display: "flex", alignItems: "center", gap: 8, background: isSelected ? state.itemActiveBg : "transparent", color: state.foreground }}>
+          <button
+            key={option.value}
+            type="button"
+            role="option"
+            aria-selected={isSelected}
+            aria-disabled={option.optionDisabled || undefined}
+            disabled={option.optionDisabled}
+            onMouseEnter={() => setActiveOptionIdx(idx)}
+            onMouseLeave={() => setActiveOptionIdx((current) => (current === idx ? null : current))}
+            onFocus={() => setActiveOptionIdx(idx)}
+            onBlur={() => setActiveOptionIdx((current) => (current === idx ? null : current))}
+            style={{ border: 0, borderRadius: 8, padding: "8px 12px", textAlign: "left", display: "flex", alignItems: "center", gap: 8, background: isSelected ? state.itemActiveBg : isActive ? state.optionActiveBg : "transparent", color: option.optionDisabled ? state.optionDisabledColor : isSelected ? state.optionSelectedText : isActive ? state.optionActiveText : state.foreground }}
+          >
             {state.multiple && <span aria-hidden="true" style={{ display: "grid", placeItems: "center", width: 16, height: 16, flexShrink: 0, borderRadius: 4, border: \`2px solid \${isSelected ? state.accent : state.border}\`, background: isSelected ? state.accent : "transparent" }}>{isSelected ? "✓" : ""}</span>}
             {option.label}
+            {!state.multiple && isSelected && <span aria-hidden="true" style={{ marginLeft: "auto", color: state.checkmarkColor }}>✓</span>}
           </button>
         );
       })}
@@ -113,19 +133,24 @@ export default function SelectStudioComponent() {
       {state.selectMode === "native" ? nativeSelect : (
         <div style={{ display: "grid", gap: 8 }}>
           {state.selectMode === "combobox" && state.searchable ? (
-            <input
-              id={state.id}
-              role="combobox"
-              aria-controls={\`\${state.id}-listbox\`}
-              aria-expanded="true"
-              aria-autocomplete="list"
-              aria-invalid={invalid || undefined}
-              value={state.multiple ? selectedValues.length + " selected" : selectedOption.label}
-              placeholder={state.placeholder}
-              disabled={state.disabled}
-              readOnly
-              style={fieldStyle}
-            />
+            <div style={{ position: "relative" }}>
+              <input
+                id={state.id}
+                role="combobox"
+                aria-controls={\`\${state.id}-listbox\`}
+                aria-expanded="true"
+                aria-autocomplete="list"
+                aria-invalid={invalid || undefined}
+                aria-label={state.ariaLabel || undefined}
+                aria-describedby={describedBy}
+                value={state.multiple ? selectedValues.length + " selected" : selectedOption.label}
+                placeholder={state.placeholder}
+                disabled={state.disabled}
+                readOnly
+                style={{ ...fieldStyle, paddingRight: 28 }}
+              />
+              <span aria-hidden="true" style={{ position: "absolute", right: 10, top: "50%", transform: "translateY(-50%)", color: state.chevronColor, pointerEvents: "none" }}>▾</span>
+            </div>
           ) : (
             <button
               id={state.id}
@@ -134,10 +159,13 @@ export default function SelectStudioComponent() {
               aria-controls={\`\${state.id}-listbox\`}
               aria-expanded="true"
               aria-invalid={invalid || undefined}
+              aria-label={state.ariaLabel || undefined}
+              aria-describedby={describedBy}
               disabled={state.disabled}
-              style={{ ...fieldStyle, textAlign: "left" }}
+              style={{ ...fieldStyle, textAlign: "left", position: "relative", paddingRight: 28 }}
             >
               {state.multiple ? selectedValues.length + " selected" : (selectedOption.label || state.placeholder)}
+              <span aria-hidden="true" style={{ position: "absolute", right: 10, top: "50%", transform: "translateY(-50%)", color: state.chevronColor }}>▾</span>
             </button>
           )}
           {state.clearable && (
@@ -148,7 +176,7 @@ export default function SelectStudioComponent() {
           {customPanel}
         </div>
       )}
-      <small style={{ color: invalid ? state.errorColor : state.showSuccess ? state.successColor : state.muted }}>{message}</small>
+      <small id={messageId} style={{ color: invalid ? state.errorColor : state.showSuccess ? state.successColor : state.muted }}>{message}</small>
     </div>
   );
 }
